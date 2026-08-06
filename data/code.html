@@ -9,6 +9,11 @@
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+
+<!-- GSAP and ScrollTrigger -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
 <script id="tailwind-config">
         tailwind.config = {
           darkMode: "class",
@@ -82,89 +87,89 @@
               },
               "fontFamily": {
                       "headline-lg-mobile": [
-                              "Hanken Grotesk"
+                               "Hanken Grotesk"
                       ],
                       "display-lg": [
-                              "Hanken Grotesk"
+                               "Hanken Grotesk"
                       ],
                       "body-md": [
-                              "Inter"
+                               "Inter"
                       ],
                       "headline-md": [
-                              "Hanken Grotesk"
+                               "Hanken Grotesk"
                       ],
                       "headline-lg": [
-                              "Hanken Grotesk"
+                               "Hanken Grotesk"
                       ],
                       "body-sm": [
-                              "Inter"
+                               "Inter"
                       ],
                       "body-lg": [
-                              "Inter"
+                               "Inter"
                       ],
                       "label-md": [
-                              "Inter"
+                               "Inter"
                       ]
               },
               "fontSize": {
                       "headline-lg-mobile": [
-                              "28px",
-                              {
-                                      "lineHeight": "36px",
-                                      "fontWeight": "600"
-                              }
+                               "28px",
+                               {
+                                       "lineHeight": "36px",
+                                       "fontWeight": "600"
+                               }
                       ],
                       "display-lg": [
-                              "48px",
-                              {
-                                      "lineHeight": "56px",
-                                      "letterSpacing": "-0.02em",
-                                      "fontWeight": "700"
-                              }
+                               "48px",
+                               {
+                                       "lineHeight": "56px",
+                                       "letterSpacing": "-0.02em",
+                                       "fontWeight": "700"
+                               }
                       ],
                       "body-md": [
-                              "16px",
-                              {
-                                      "lineHeight": "24px",
-                                      "fontWeight": "400"
-                              }
+                               "16px",
+                               {
+                                       "lineHeight": "24px",
+                                       "fontWeight": "400"
+                               }
                       ],
                       "headline-md": [
-                              "24px",
-                              {
-                                      "lineHeight": "32px",
-                                      "fontWeight": "600"
-                              }
+                               "24px",
+                               {
+                                       "lineHeight": "32px",
+                                       "fontWeight": "600"
+                               }
                       ],
                       "headline-lg": [
-                              "32px",
-                              {
-                                      "lineHeight": "40px",
-                                      "letterSpacing": "-0.01em",
-                                      "fontWeight": "600"
-                              }
+                               "32px",
+                               {
+                                       "lineHeight": "40px",
+                                       "letterSpacing": "-0.01em",
+                                       "fontWeight": "600"
+                               }
                       ],
                       "body-sm": [
-                              "14px",
-                              {
-                                      "lineHeight": "20px",
-                                      "fontWeight": "400"
-                              }
+                               "14px",
+                               {
+                                       "lineHeight": "20px",
+                                       "fontWeight": "400"
+                               }
                       ],
                       "body-lg": [
-                              "18px",
-                              {
-                                      "lineHeight": "28px",
-                                      "fontWeight": "400"
-                              }
+                               "18px",
+                               {
+                                       "lineHeight": "28px",
+                                       "fontWeight": "400"
+                               }
                       ],
                       "label-md": [
-                              "14px",
-                              {
-                                      "lineHeight": "16px",
-                                      "letterSpacing": "0.05em",
-                                      "fontWeight": "600"
-                              }
+                               "14px",
+                               {
+                                       "lineHeight": "16px",
+                                       "letterSpacing": "0.05em",
+                                       "fontWeight": "600"
+                               }
                       ]
               }
       },
@@ -172,22 +177,20 @@
         }
       </script>
 <style>
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease-out;
+        .card-hover {
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
+        .card-hover:hover {
+            transform: translateY(-6px);
+            box-shadow: 0px 12px 32px rgba(10, 25, 47, 0.12);
         }
       </style>
 </head>
 <body class="bg-background text-on-background font-body-md antialiased overflow-x-hidden">
 <!-- TopNavBar -->
-<header class="bg-surface dark:bg-surface-dim shadow-sm dark:bg-surface-container-high docked full-width top-0 sticky z-50 transition-all duration-300" id="main-nav">
-<div class="flex justify-between items-center w-full px-margin-desktop max-w-[1280px] mx-auto h-20 px-margin-mobile md:px-margin-desktop">
-<div class="text-headline-md font-headline-md font-bold text-primary dark:text-inverse-primary tracking-tight">
+<header class="bg-surface/95 dark:bg-surface-dim/95 shadow-sm docked full-width top-0 sticky z-50 transition-all duration-300 backdrop-blur-md" id="main-nav">
+<div class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop max-w-[1280px] mx-auto h-20">
+<div class="text-2xl md:text-headline-md font-headline-md font-bold text-primary dark:text-inverse-primary tracking-tight">
                 CA Portfolio
             </div>
 <nav class="hidden md:flex items-center gap-gutter">
@@ -199,131 +202,150 @@
 <a class="text-secondary dark:text-secondary-fixed font-body-md text-body-md hover:text-primary dark:hover:text-inverse-primary transition-colors duration-300" href="#process">Process</a>
 <a class="text-secondary dark:text-secondary-fixed font-body-md text-body-md hover:text-primary dark:hover:text-inverse-primary transition-colors duration-300" href="#contact">Contact</a>
 </nav>
-<a class="hidden md:inline-flex items-center justify-center bg-tertiary-container text-on-tertiary-container px-6 py-3 rounded-full font-label-md text-label-md hover:opacity-90 transition-opacity" href="#contact">
+<a class="hidden md:inline-flex items-center justify-center bg-tertiary-container text-on-tertiary-container px-6 py-3 rounded-full font-label-md text-label-md hover:opacity-90 transition-all transform hover:scale-105 active:scale-95 shadow-sm" href="#contact">
                 Book a Consultation
             </a>
 <!-- Mobile Menu Button -->
-<button class="md:hidden text-on-surface">
-<span class="material-symbols-outlined text-headline-md">menu</span>
+<button aria-label="Toggle Navigation" class="md:hidden text-on-surface p-2 focus:outline-none focus:ring-2 focus:ring-primary rounded-lg" id="mobile-menu-btn">
+<span class="material-symbols-outlined text-3xl transition-transform duration-300" id="menu-icon">menu</span>
 </button>
 </div>
+
+<!-- Mobile Drawer Overlay Menu -->
+<div class="md:hidden fixed inset-x-0 top-20 bg-surface/98 dark:bg-surface-dim/98 backdrop-blur-lg border-b border-surface-container-high shadow-2xl hidden flex-col px-6 py-6 space-y-3 z-40" id="mobile-menu">
+<a class="mobile-nav-link text-primary dark:text-inverse-primary font-headline-md text-lg py-2 border-b border-surface-container-low transition-colors hover:text-tertiary" href="#home">Home</a>
+<a class="mobile-nav-link text-secondary dark:text-secondary-fixed font-body-md text-base py-2 border-b border-surface-container-low transition-colors hover:text-primary" href="#about">About</a>
+<a class="mobile-nav-link text-secondary dark:text-secondary-fixed font-body-md text-base py-2 border-b border-surface-container-low transition-colors hover:text-primary" href="#services">Services</a>
+<a class="mobile-nav-link text-secondary dark:text-secondary-fixed font-body-md text-base py-2 border-b border-surface-container-low transition-colors hover:text-primary" href="#whyme">Why Me</a>
+<a class="mobile-nav-link text-secondary dark:text-secondary-fixed font-body-md text-base py-2 border-b border-surface-container-low transition-colors hover:text-primary" href="#testimonials">Testimonials</a>
+<a class="mobile-nav-link text-secondary dark:text-secondary-fixed font-body-md text-base py-2 border-b border-surface-container-low transition-colors hover:text-primary" href="#process">Process</a>
+<a class="mobile-nav-link text-secondary dark:text-secondary-fixed font-body-md text-base py-2 border-b border-surface-container-low transition-colors hover:text-primary" href="#contact">Contact</a>
+<a class="mobile-nav-link inline-flex items-center justify-center bg-tertiary-container text-on-tertiary-container px-6 py-3.5 rounded-full font-label-md text-label-md text-center mt-4 shadow-md active:scale-95 transition-transform" href="#contact">
+                Book a Consultation
+            </a>
+</div>
 </header>
-<!-- BottomNavBar (Mobile Only) -->
-<div class="md:hidden fixed bottom-md right-md z-50 flex items-center justify-center bg-transparent">
-<a class="flex items-center justify-center text-on-primary bg-primary dark:bg-primary-container shadow-[0px_12px_32px_rgba(10,25,47,0.12)] animate-pulse rounded-full w-16 h-16 hover:scale-110 hover:shadow-xl transition-transform" href="#contact">
-<span class="material-symbols-outlined text-headline-md">chat</span>
+
+<!-- Bottom Floating Chat Button (Mobile Only) -->
+<div class="md:hidden fixed bottom-6 right-6 z-40 flex items-center justify-center">
+<a aria-label="Quick Contact" class="flex items-center justify-center text-on-primary bg-primary dark:bg-primary-container shadow-[0px_12px_32px_rgba(10,25,47,0.25)] rounded-full w-14 h-14 hover:scale-110 active:scale-95 transition-transform" href="#contact">
+<span class="material-symbols-outlined text-2xl">chat</span>
 </a>
 </div>
+
 <!-- MAIN CONTENT -->
 <main>
 <!-- Hero Section -->
-<section class="relative pt-xl pb-24 md:pt-32 md:pb-32 px-margin-mobile md:px-margin-desktop overflow-hidden flex items-center min-h-[921px]" id="home">
+<section class="relative py-12 md:py-24 px-margin-mobile md:px-margin-desktop overflow-hidden flex items-center min-h-[calc(100vh-80px)] lg:min-h-[720px]" id="home">
 <div class="absolute inset-0 bg-gradient-to-br from-primary-fixed to-surface-container-lowest opacity-40 -z-10"></div>
-<div class="max-w-[1280px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-xl items-center w-full">
-<div class="reveal">
-<h1 class="text-display-lg font-display-lg text-on-surface mb-6 leading-tight">
+<div class="max-w-[1280px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-xl items-center w-full">
+<div class="hero-text-content">
+<h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-display-lg font-display-lg text-on-surface mb-6 leading-tight">
                         Trusted Financial Guidance for Individuals &amp; Businesses
                     </h1>
-<p class="text-body-lg font-body-lg text-on-surface-variant mb-8 max-w-xl">
+<p class="text-body-md sm:text-body-lg font-body-lg text-on-surface-variant mb-8 max-w-xl">
                         Precision in every digit. Strategic insights tailored to secure your financial future and optimize growth.
                     </p>
-<div class="flex flex-col sm:flex-row gap-4 mb-12">
-<a class="inline-flex items-center justify-center bg-tertiary-container text-on-tertiary-container px-8 py-4 rounded-full font-label-md text-label-md hover:bg-tertiary hover:text-on-tertiary transition-colors shadow-sm" href="#contact">
+<div class="flex flex-col sm:flex-row gap-4 mb-10 sm:mb-12">
+<a class="inline-flex items-center justify-center bg-tertiary-container text-on-tertiary-container px-8 py-4 rounded-full font-label-md text-label-md hover:bg-tertiary hover:text-on-tertiary transition-all transform hover:scale-105 active:scale-95 shadow-sm" href="#contact">
                             Book a Consultation
                         </a>
-<a class="inline-flex items-center justify-center border-2 border-primary-container text-primary-container px-8 py-4 rounded-full font-label-md text-label-md hover:bg-surface-container-low transition-colors" href="#contact">
+<a class="inline-flex items-center justify-center border-2 border-primary-container text-primary-container px-8 py-4 rounded-full font-label-md text-label-md hover:bg-surface-container-low transition-all transform hover:scale-105 active:scale-95" href="#contact">
                             Contact on WhatsApp
                         </a>
 </div>
-<div class="flex items-center gap-6 text-on-surface-variant">
+<div class="flex flex-wrap items-center gap-4 sm:gap-6 text-on-surface-variant">
 <div class="flex items-center gap-2">
 <span class="material-symbols-outlined text-tertiary-container" style="font-variation-settings: 'FILL' 1;">verified</span>
 <span class="text-body-sm font-body-sm font-medium">ICAI Certified</span>
 </div>
-<div class="w-1 h-1 rounded-full bg-outline-variant"></div>
+<div class="hidden sm:block w-1.5 h-1.5 rounded-full bg-outline-variant"></div>
 <div class="flex items-center gap-2">
 <span class="material-symbols-outlined text-tertiary-container" style="font-variation-settings: 'FILL' 1;">group</span>
 <span class="text-body-sm font-body-sm font-medium">500+ Clients</span>
 </div>
 </div>
 </div>
-<div class="relative reveal h-[500px] lg:h-[600px] rounded-2xl overflow-hidden shadow-[0px_12px_32px_rgba(10,25,47,0.12)] bg-surface-container">
-<img class="object-cover w-full h-full" data-alt="A professional portrait of a distinguished Chartered Accountant in a modern, well-lit office setting. The individual is wearing a sharp, tailored navy blue suit, exuding confidence and expertise. The lighting is soft and bright, creating a clean, high-end corporate modernist aesthetic. Subtle financial charts or elegant office decor blur in the background, reinforcing a premium financial services environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_NuUvNzK6j38L1NuDL7Ira50KTyfrAcGPbhupwbABslK4oPYQ8eUJIKsdf8rSiFsvYYMNBnE2oG1Wo4dIXD7VZrdk6ZlJ9UziIDEbaQ4Y1SHZXwisYHPtp_ef6iu7gY-HEOtN7I5d-rp2JHDaSUV2orjsEMrjRq4Goz3q5IEg8owHz-SN9lOC12KQQG2k04nqD5EZAp8GHtrv4PPlGGORO3i8hZ-BevbFbCkXGE77wVyHhlCJsIPF9A"/>
+<div class="hero-image-wrap relative h-[300px] sm:h-[420px] lg:h-[580px] rounded-2xl overflow-hidden shadow-[0px_12px_32px_rgba(10,25,47,0.12)] bg-surface-container mt-4 lg:mt-0">
+<img class="object-cover w-full h-full scale-105" data-alt="A professional portrait of a distinguished Chartered Accountant in a modern, well-lit office setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_NuUvNzK6j38L1NuDL7Ira50KTyfrAcGPbhupwbABslK4oPYQ8eUJIKsdf8rSiFsvYYMNBnE2oG1Wo4dIXD7VZrdk6ZlJ9UziIDEbaQ4Y1SHZXwisYHPtp_ef6iu7gY-HEOtN7I5d-rp2JHDaSUV2orjsEMrjRq4Goz3q5IEg8owHz-SN9lOC12KQQG2k04nqD5EZAp8GHtrv4PPlGGORO3i8hZ-BevbFbCkXGE77wVyHhlCJsIPF9A"/>
 </div>
 </div>
 </section>
+
 <!-- About Section -->
-<section class="py-xl bg-surface-container-lowest px-margin-mobile md:px-margin-desktop" id="about">
-<div class="max-w-[1280px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-xl items-center">
-<div class="reveal relative h-[400px] lg:h-[500px] rounded-2xl overflow-hidden shadow-sm order-2 lg:order-1">
-<img class="object-cover w-full h-full" data-alt="A close-up, engaging photo of a Chartered Accountant reviewing documents or working on a sleek laptop in a bright, minimalist workspace. The setting should feel authoritative yet accessible, with natural light pouring in. The color palette focuses on whites, light greys, and navy accents, perfectly aligning with a trustworthy, premium financial brand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-iEt6awvR_VebZ7Ji4967fcaxcqQtw-sv3V2PEDXBGFZMQSWE_TeZK4Inoa_5eNZYCPx8H1T4s4N9fitxyUxa4joNGuPUYW_gQOYOo6xHLmLZZhSCYrD3vS9jRK49SjXseF0QcwkimDN3QdKWe_xvKJEPOb6JqYFKsiyRzpVOC8MH8CFaoiTQ_5yo66rBNGkA2ju89lT_7Xpvr8i6b7kqj2tjr4XmyjkHUWXO4nCOGFPiHFYmz5rDNA"/>
+<section class="py-12 sm:py-xl bg-surface-container-lowest px-margin-mobile md:px-margin-desktop" id="about">
+<div class="max-w-[1280px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-xl items-center">
+<div class="about-image-wrap relative h-[260px] sm:h-[380px] lg:h-[500px] rounded-2xl overflow-hidden shadow-sm order-2 lg:order-1">
+<img class="object-cover w-full h-full" data-alt="A close-up photo of a Chartered Accountant reviewing documents." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-iEt6awvR_VebZ7Ji4967fcaxcqQtw-sv3V2PEDXBGFZMQSWE_TeZK4Inoa_5eNZYCPx8H1T4s4N9fitxyUxa4joNGuPUYW_gQOYOo6xHLmLZZhSCYrD3vS9jRK49SjXseF0QcwkimDN3QdKWe_xvKJEPOb6JqYFKsiyRzpVOC8MH8CFaoiTQ_5yo66rBNGkA2ju89lT_7Xpvr8i6b7kqj2tjr4XmyjkHUWXO4nCOGFPiHFYmz5rDNA"/>
 </div>
-<div class="reveal order-1 lg:order-2">
-<h2 class="text-headline-lg font-headline-lg text-on-surface mb-6">Expertise Built on Trust &amp; Precision</h2>
+<div class="order-1 lg:order-2">
+<h2 class="text-2xl sm:text-headline-lg font-headline-lg text-on-surface mb-6">Expertise Built on Trust &amp; Precision</h2>
 <p class="text-body-md font-body-md text-on-surface-variant mb-6">
                         With over a decade of experience navigating complex financial landscapes, I specialize in transforming raw data into actionable strategies. My approach marries rigorous analytical precision with a deep understanding of each client's unique goals.
                     </p>
 <p class="text-body-md font-body-md text-on-surface-variant mb-8">
                         Whether you are an individual seeking tax optimization or a corporation requiring comprehensive audit services, my commitment remains the same: delivering clarity, compliance, and growth.
                     </p>
-<div class="grid grid-cols-2 gap-6">
-<div class="p-6 bg-surface-container-low rounded-xl border border-surface-container-high text-center">
-<div class="text-headline-lg font-headline-lg text-primary-container mb-2">12+</div>
-<div class="text-label-md font-label-md text-on-surface-variant uppercase tracking-wider">Years Exp.</div>
+<div class="grid grid-cols-2 gap-4 sm:gap-6">
+<div class="p-4 sm:p-6 bg-surface-container-low rounded-xl border border-surface-container-high text-center shadow-xs">
+<div class="text-3xl sm:text-headline-lg font-headline-lg text-primary-container mb-2" id="stat-exp">12+</div>
+<div class="text-xs sm:text-label-md font-label-md text-on-surface-variant uppercase tracking-wider">Years Exp.</div>
 </div>
-<div class="p-6 bg-surface-container-low rounded-xl border border-surface-container-high text-center">
-<div class="text-headline-lg font-headline-lg text-primary-container mb-2">99%</div>
-<div class="text-label-md font-label-md text-on-surface-variant uppercase tracking-wider">Audit Success</div>
+<div class="p-4 sm:p-6 bg-surface-container-low rounded-xl border border-surface-container-high text-center shadow-xs">
+<div class="text-3xl sm:text-headline-lg font-headline-lg text-primary-container mb-2" id="stat-audit">99%</div>
+<div class="text-xs sm:text-label-md font-label-md text-on-surface-variant uppercase tracking-wider">Audit Success</div>
 </div>
 </div>
 </div>
 </div>
 </section>
+
 <!-- Services Section -->
-<section class="py-xl bg-surface px-margin-mobile md:px-margin-desktop" id="services">
-<div class="max-w-[1280px] mx-auto reveal">
-<div class="text-center mb-16">
-<h2 class="text-headline-lg font-headline-lg text-on-surface mb-4">Comprehensive Financial Solutions</h2>
-<p class="text-body-lg font-body-lg text-on-surface-variant max-w-2xl mx-auto">Tailored services designed to streamline your operations and secure your financial foundation.</p>
+<section class="py-12 sm:py-xl bg-surface px-margin-mobile md:px-margin-desktop" id="services">
+<div class="max-w-[1280px] mx-auto">
+<div class="text-center mb-10 sm:mb-16">
+<h2 class="text-2xl sm:text-headline-lg font-headline-lg text-on-surface mb-4">Comprehensive Financial Solutions</h2>
+<p class="text-body-md sm:text-body-lg font-body-lg text-on-surface-variant max-w-2xl mx-auto">Tailored services designed to streamline your operations and secure your financial foundation.</p>
 </div>
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-<!-- Service Card -->
-<div class="bg-surface-container-lowest p-8 rounded-2xl shadow-[0px_4px_20px_rgba(10,25,47,0.05)] border border-surface-container-high hover:-translate-y-2 transition-transform duration-300">
+<!-- Service Card 1 -->
+<div class="card-hover bg-surface-container-lowest p-6 sm:p-8 rounded-2xl shadow-[0px_4px_20px_rgba(10,25,47,0.05)] border border-surface-container-high">
 <div class="w-12 h-12 rounded-full bg-primary-fixed flex items-center justify-center mb-6">
 <span class="material-symbols-outlined text-on-primary-fixed">account_balance</span>
 </div>
-<h3 class="text-headline-md font-headline-md text-on-surface mb-3">Income Tax</h3>
-<p class="text-body-md font-body-md text-on-surface-variant">Strategic tax planning and meticulous filing for individuals and corporate entities to maximize returns.</p>
+<h3 class="text-xl sm:text-headline-md font-headline-md text-on-surface mb-3">Income Tax</h3>
+<p class="text-body-sm sm:text-body-md font-body-md text-on-surface-variant">Strategic tax planning and meticulous filing for individuals and corporate entities to maximize returns.</p>
 </div>
-<!-- Service Card -->
-<div class="bg-surface-container-lowest p-8 rounded-2xl shadow-[0px_4px_20px_rgba(10,25,47,0.05)] border border-surface-container-high hover:-translate-y-2 transition-transform duration-300">
+<!-- Service Card 2 -->
+<div class="card-hover bg-surface-container-lowest p-6 sm:p-8 rounded-2xl shadow-[0px_4px_20px_rgba(10,25,47,0.05)] border border-surface-container-high">
 <div class="w-12 h-12 rounded-full bg-primary-fixed flex items-center justify-center mb-6">
 <span class="material-symbols-outlined text-on-primary-fixed">receipt_long</span>
 </div>
-<h3 class="text-headline-md font-headline-md text-on-surface mb-3">GST Compliance</h3>
-<p class="text-body-md font-body-md text-on-surface-variant">End-to-end GST registration, regular filing, and advisory to ensure seamless regulatory adherence.</p>
+<h3 class="text-xl sm:text-headline-md font-headline-md text-on-surface mb-3">GST Compliance</h3>
+<p class="text-body-sm sm:text-body-md font-body-md text-on-surface-variant">End-to-end GST registration, regular filing, and advisory to ensure seamless regulatory adherence.</p>
 </div>
-<!-- Service Card -->
-<div class="bg-surface-container-lowest p-8 rounded-2xl shadow-[0px_4px_20px_rgba(10,25,47,0.05)] border-t-2 border-t-tertiary-container hover:-translate-y-2 transition-transform duration-300 relative overflow-hidden">
+<!-- Service Card 3 -->
+<div class="card-hover bg-surface-container-lowest p-6 sm:p-8 rounded-2xl shadow-[0px_4px_20px_rgba(10,25,47,0.05)] border-t-2 border-t-tertiary-container border-x border-b border-surface-container-high relative overflow-hidden">
 <div class="w-12 h-12 rounded-full bg-tertiary-fixed flex items-center justify-center mb-6 relative z-10">
 <span class="material-symbols-outlined text-on-tertiary-fixed">fact_check</span>
 </div>
-<h3 class="text-headline-md font-headline-md text-on-surface mb-3 relative z-10">Statutory Auditing</h3>
-<p class="text-body-md font-body-md text-on-surface-variant relative z-10">Rigorous internal and statutory audits providing transparent insights into your financial health.</p>
+<h3 class="text-xl sm:text-headline-md font-headline-md text-on-surface mb-3 relative z-10">Statutory Auditing</h3>
+<p class="text-body-sm sm:text-body-md font-body-md text-on-surface-variant relative z-10">Rigorous internal and statutory audits providing transparent insights into your financial health.</p>
 </div>
 </div>
 </div>
 </section>
+
 <!-- Why Choose Me Section -->
-<section class="py-xl bg-surface-container-lowest px-margin-mobile md:px-margin-desktop" id="whyme">
-<div class="max-w-[1280px] mx-auto reveal">
-<div class="text-center mb-16">
-<h2 class="text-headline-lg font-headline-lg text-on-surface mb-4">Why Choose Me</h2>
-<p class="text-body-lg font-body-lg text-on-surface-variant max-w-2xl mx-auto">A commitment to excellence, integrity, and your financial success.</p>
+<section class="py-12 sm:py-xl bg-surface-container-lowest px-margin-mobile md:px-margin-desktop" id="whyme">
+<div class="max-w-[1280px] mx-auto">
+<div class="text-center mb-10 sm:mb-16">
+<h2 class="text-2xl sm:text-headline-lg font-headline-lg text-on-surface mb-4">Why Choose Me</h2>
+<p class="text-body-md sm:text-body-lg font-body-lg text-on-surface-variant max-w-2xl mx-auto">A commitment to excellence, integrity, and your financial success.</p>
 </div>
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
 <!-- Feature 1 -->
-<div class="flex gap-4 p-6 hover:bg-surface-container-low rounded-xl transition-colors">
+<div class="flex gap-4 p-5 sm:p-6 bg-surface-container-low/50 hover:bg-surface-container-low rounded-xl transition-colors">
 <div class="flex-shrink-0 w-12 h-12 rounded-full bg-primary-fixed flex items-center justify-center">
 <span class="material-symbols-outlined text-on-primary-fixed">verified_user</span>
 </div>
@@ -333,7 +355,7 @@
 </div>
 </div>
 <!-- Feature 2 -->
-<div class="flex gap-4 p-6 hover:bg-surface-container-low rounded-xl transition-colors">
+<div class="flex gap-4 p-5 sm:p-6 bg-surface-container-low/50 hover:bg-surface-container-low rounded-xl transition-colors">
 <div class="flex-shrink-0 w-12 h-12 rounded-full bg-tertiary-fixed flex items-center justify-center">
 <span class="material-symbols-outlined text-on-tertiary-fixed">person_search</span>
 </div>
@@ -343,7 +365,7 @@
 </div>
 </div>
 <!-- Feature 3 -->
-<div class="flex gap-4 p-6 hover:bg-surface-container-low rounded-xl transition-colors">
+<div class="flex gap-4 p-5 sm:p-6 bg-surface-container-low/50 hover:bg-surface-container-low rounded-xl transition-colors">
 <div class="flex-shrink-0 w-12 h-12 rounded-full bg-primary-fixed flex items-center justify-center">
 <span class="material-symbols-outlined text-on-primary-fixed">schedule</span>
 </div>
@@ -353,7 +375,7 @@
 </div>
 </div>
 <!-- Feature 4 -->
-<div class="flex gap-4 p-6 hover:bg-surface-container-low rounded-xl transition-colors">
+<div class="flex gap-4 p-5 sm:p-6 bg-surface-container-low/50 hover:bg-surface-container-low rounded-xl transition-colors">
 <div class="flex-shrink-0 w-12 h-12 rounded-full bg-tertiary-fixed flex items-center justify-center">
 <span class="material-symbols-outlined text-on-tertiary-fixed">visibility</span>
 </div>
@@ -363,7 +385,7 @@
 </div>
 </div>
 <!-- Feature 5 -->
-<div class="flex gap-4 p-6 hover:bg-surface-container-low rounded-xl transition-colors">
+<div class="flex gap-4 p-5 sm:p-6 bg-surface-container-low/50 hover:bg-surface-container-low rounded-xl transition-colors">
 <div class="flex-shrink-0 w-12 h-12 rounded-full bg-primary-fixed flex items-center justify-center">
 <span class="material-symbols-outlined text-on-primary-fixed">support_agent</span>
 </div>
@@ -373,7 +395,7 @@
 </div>
 </div>
 <!-- Feature 6 -->
-<div class="flex gap-4 p-6 hover:bg-surface-container-low rounded-xl transition-colors">
+<div class="flex gap-4 p-5 sm:p-6 bg-surface-container-low/50 hover:bg-surface-container-low rounded-xl transition-colors">
 <div class="flex-shrink-0 w-12 h-12 rounded-full bg-tertiary-fixed flex items-center justify-center">
 <span class="material-symbols-outlined text-on-tertiary-fixed">lock</span>
 </div>
@@ -385,16 +407,17 @@
 </div>
 </div>
 </section>
+
 <!-- Testimonials Section -->
-<section class="py-xl bg-surface px-margin-mobile md:px-margin-desktop" id="testimonials">
-<div class="max-w-[1280px] mx-auto reveal">
-<div class="text-center mb-16">
-<h2 class="text-headline-lg font-headline-lg text-on-surface mb-4">What My Clients Say</h2>
-<p class="text-body-lg font-body-lg text-on-surface-variant max-w-2xl mx-auto">Hear from businesses and individuals who have trusted me with their finances.</p>
+<section class="py-12 sm:py-xl bg-surface px-margin-mobile md:px-margin-desktop" id="testimonials">
+<div class="max-w-[1280px] mx-auto">
+<div class="text-center mb-10 sm:mb-16">
+<h2 class="text-2xl sm:text-headline-lg font-headline-lg text-on-surface mb-4">What My Clients Say</h2>
+<p class="text-body-md sm:text-body-lg font-body-lg text-on-surface-variant max-w-2xl mx-auto">Hear from businesses and individuals who have trusted me with their finances.</p>
 </div>
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 <!-- Testimonial 1 -->
-<div class="bg-surface-container-lowest p-8 rounded-2xl shadow-[0px_4px_20px_rgba(10,25,47,0.05)] border border-surface-container-high hover:-translate-y-2 transition-transform duration-300">
+<div class="card-hover bg-surface-container-lowest p-6 sm:p-8 rounded-2xl shadow-[0px_4px_20px_rgba(10,25,47,0.05)] border border-surface-container-high">
 <div class="flex text-tertiary-container mb-4">
 <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
 <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
@@ -402,10 +425,10 @@
 <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
 <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
 </div>
-<p class="text-body-md font-body-md text-on-surface-variant italic mb-6">"Their strategic tax planning saved our company thousands this fiscal year. Highly professional and always available to answer our queries."</p>
+<p class="text-body-sm sm:text-body-md font-body-md text-on-surface-variant italic mb-6">"Their strategic tax planning saved our company thousands this fiscal year. Highly professional and always available to answer our queries."</p>
 <div class="flex items-center gap-4">
-<div class="w-12 h-12 rounded-full bg-surface-container-high overflow-hidden">
-<img alt="Client" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBsUEzbmNjU6NIwMv_RBxHCUk_ih5JpBICKkhy_Rj4GP_DUkiR-Q5d3Cn0AX1Z1ieWQvpaaOrbdVkqMgN67swCrCdSTOhAt8uYRov_dPWHRthK0UGV78P-KSvpXhrOSBTToC5VHPukhxRSFbHp-T3JE0hl9L94waORaLjsznM7Hzhr4Dp9lQUUKSAi2TtlQNaFJabee4lhlGxaaxScGEye9aZVjpQ0eB2oU3v2k1xVpEhxvK86-IVmXZg"/>
+<div class="w-12 h-12 rounded-full bg-surface-container-high overflow-hidden flex-shrink-0">
+<img alt="Client Sarah Jenkins" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBsUEzbmNjU6NIwMv_RBxHCUk_ih5JpBICKkhy_Rj4GP_DUkiR-Q5d3Cn0AX1Z1ieWQvpaaOrbdVkqMgN67swCrCdSTOhAt8uYRov_dPWHRthK0UGV78P-KSvpXhrOSBTToC5VHPukhxRSFbHp-T3JE0hl9L94waORaLjsznM7Hzhr4Dp9lQUUKSAi2TtlQNaFJabee4lhlGxaaxScGEye9aZVjpQ0eB2oU3v2k1xVpEhxvK86-IVmXZg"/>
 </div>
 <div>
 <h4 class="font-headline-sm text-on-surface font-semibold">Sarah Jenkins</h4>
@@ -414,7 +437,7 @@
 </div>
 </div>
 <!-- Testimonial 2 -->
-<div class="bg-surface-container-lowest p-8 rounded-2xl shadow-[0px_4px_20px_rgba(10,25,47,0.05)] border border-surface-container-high hover:-translate-y-2 transition-transform duration-300">
+<div class="card-hover bg-surface-container-lowest p-6 sm:p-8 rounded-2xl shadow-[0px_4px_20px_rgba(10,25,47,0.05)] border border-surface-container-high">
 <div class="flex text-tertiary-container mb-4">
 <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
 <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
@@ -422,10 +445,10 @@
 <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
 <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
 </div>
-<p class="text-body-md font-body-md text-on-surface-variant italic mb-6">"Navigating GST compliance used to be a nightmare for my retail business until I started working with them. Seamless, timely, and error-free."</p>
+<p class="text-body-sm sm:text-body-md font-body-md text-on-surface-variant italic mb-6">"Navigating GST compliance used to be a nightmare for my retail business until I started working with them. Seamless, timely, and error-free."</p>
 <div class="flex items-center gap-4">
-<div class="w-12 h-12 rounded-full bg-surface-container-high overflow-hidden">
-<img alt="Client" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBltJIqjau2I5cDeUFlRnCvmo21GgvL6XTG7dfPwNwUxS_yVnQYccNZHbp7q5QGNd5jQW4SRMY7Mk-h5FoY2sWO0B0BPyO9UMuy-gjed2412DqBoZkzpUCBfDTjKw93Rs3UgiJ6pnpyw8yIwRM9_nGqDJXVlqZ5FpMG9j6Yqh0y3mgAwK0qGCrCQMcIeWz1nRWiDtAvhkhcpm8mSnidKCqcV06p246oaW31viug5qNel84ZQr_rq-Qq2A"/>
+<div class="w-12 h-12 rounded-full bg-surface-container-high overflow-hidden flex-shrink-0">
+<img alt="Client Rajesh Kumar" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBltJIqjau2I5cDeUFlRnCvmo21GgvL6XTG7dfPwNwUxS_yVnQYccNZHbp7q5QGNd5jQW4SRMY7Mk-h5FoY2sWO0B0BPyO9UMuy-gjed2412DqBoZkzpUCBfDTjKw93Rs3UgiJ6pnpyw8yIwRM9_nGqDJXVlqZ5FpMG9j6Yqh0y3mgAwK0qGCrCQMcIeWz1nRWiDtAvhkhcpm8mSnidKCqcV06p246oaW31viug5qNel84ZQr_rq-Qq2A"/>
 </div>
 <div>
 <h4 class="font-headline-sm text-on-surface font-semibold">Rajesh Kumar</h4>
@@ -434,7 +457,7 @@
 </div>
 </div>
 <!-- Testimonial 3 -->
-<div class="bg-surface-container-lowest p-8 rounded-2xl shadow-[0px_4px_20px_rgba(10,25,47,0.05)] border border-surface-container-high hover:-translate-y-2 transition-transform duration-300">
+<div class="card-hover bg-surface-container-lowest p-6 sm:p-8 rounded-2xl shadow-[0px_4px_20px_rgba(10,25,47,0.05)] border border-surface-container-high">
 <div class="flex text-tertiary-container mb-4">
 <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
 <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
@@ -442,10 +465,10 @@
 <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
 <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
 </div>
-<p class="text-body-md font-body-md text-on-surface-variant italic mb-6">"Thorough and insightful statutory audits. They don't just check boxes; they provide real value and insights into our financial health."</p>
+<p class="text-body-sm sm:text-body-md font-body-md text-on-surface-variant italic mb-6">"Thorough and insightful statutory audits. They don't just check boxes; they provide real value and insights into our financial health."</p>
 <div class="flex items-center gap-4">
-<div class="w-12 h-12 rounded-full bg-surface-container-high overflow-hidden">
-<img alt="Client" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCtVX1fj4mFtuSvHgm5wmJcYTKlBRj0D4cIArc-bgsse39tJmUv-89sadBbd6JaOoGduqfvtZWZMpGRPr3SJgLkySP5YNMOqVYutWlshqtCmXD4mjOniGDJP-KGrEumQk9uzcVUXPFuiNLnmgFm7laQhje86i4kohdhTmWGjlor521drQPcq8R24FYp-2yLzvFPHstlhQk78G7JL166CoKKlib_i_NFK_qXp9orC7utkU95daSVNSgPng"/>
+<div class="w-12 h-12 rounded-full bg-surface-container-high overflow-hidden flex-shrink-0">
+<img alt="Client Anita Patel" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCtVX1fj4mFtuSvHgm5wmJcYTKlBRj0D4cIArc-bgsse39tJmUv-89sadBbd6JaOoGduqfvtZWZMpGRPr3SJgLkySP5YNMOqVYutWlshqtCmXD4mjOniGDJP-KGrEumQk9uzcVUXPFuiNLnmgFm7laQhje86i4kohdhTmWGjlor521drQPcq8R24FYp-2yLzvFPHstlhQk78G7JL166CoKKlib_i_NFK_qXp9orC7utkU95daSVNSgPng"/>
 </div>
 <div>
 <h4 class="font-headline-sm text-on-surface font-semibold">Anita Patel</h4>
@@ -456,47 +479,48 @@
 </div>
 </div>
 </section>
+
 <!-- Process Section -->
-<section class="py-xl bg-surface-container-lowest px-margin-mobile md:px-margin-desktop" id="process">
-<div class="max-w-[1280px] mx-auto reveal">
-<div class="text-center mb-16">
-<h2 class="text-headline-lg font-headline-lg text-on-surface mb-4">How It Works</h2>
-<p class="text-body-lg font-body-lg text-on-surface-variant max-w-2xl mx-auto">A streamlined, transparent process to handle your financial needs efficiently.</p>
+<section class="py-12 sm:py-xl bg-surface-container-lowest px-margin-mobile md:px-margin-desktop" id="process">
+<div class="max-w-[1280px] mx-auto">
+<div class="text-center mb-10 sm:mb-16">
+<h2 class="text-2xl sm:text-headline-lg font-headline-lg text-on-surface mb-4">How It Works</h2>
+<p class="text-body-md sm:text-body-lg font-body-lg text-on-surface-variant max-w-2xl mx-auto">A streamlined, transparent process to handle your financial needs efficiently.</p>
 </div>
 <div class="relative">
 <!-- Connecting Line (Desktop) -->
 <div class="hidden md:block absolute top-1/2 left-0 right-0 h-1 bg-surface-container-high -translate-y-1/2 z-0"></div>
 <div class="grid grid-cols-1 md:grid-cols-5 gap-8 relative z-10">
 <!-- Step 1 -->
-<div class="flex flex-col items-center text-center">
+<div class="process-step flex flex-col items-center text-center">
 <div class="w-16 h-16 rounded-full bg-primary text-on-primary flex items-center justify-center text-headline-md font-bold mb-4 shadow-md ring-4 ring-surface-container-lowest">1</div>
 <div class="mb-3 text-tertiary-container"><span class="material-symbols-outlined text-3xl">forum</span></div>
 <h3 class="text-body-lg font-headline-md text-on-surface font-semibold mb-2">Initial Consultation</h3>
 <p class="text-body-sm font-body-sm text-on-surface-variant">Understanding your specific needs and goals.</p>
 </div>
 <!-- Step 2 -->
-<div class="flex flex-col items-center text-center">
+<div class="process-step flex flex-col items-center text-center">
 <div class="w-16 h-16 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center text-headline-md font-bold mb-4 shadow-md ring-4 ring-surface-container-lowest">2</div>
 <div class="mb-3 text-tertiary-container"><span class="material-symbols-outlined text-3xl">folder_open</span></div>
 <h3 class="text-body-lg font-headline-md text-on-surface font-semibold mb-2">Document Collection</h3>
 <p class="text-body-sm font-body-sm text-on-surface-variant">Securely gathering necessary financial records.</p>
 </div>
 <!-- Step 3 -->
-<div class="flex flex-col items-center text-center">
+<div class="process-step flex flex-col items-center text-center">
 <div class="w-16 h-16 rounded-full bg-tertiary-container text-on-tertiary-container flex items-center justify-center text-headline-md font-bold mb-4 shadow-md ring-4 ring-surface-container-lowest">3</div>
 <div class="mb-3 text-primary-container"><span class="material-symbols-outlined text-3xl">lightbulb</span></div>
 <h3 class="text-body-lg font-headline-md text-on-surface font-semibold mb-2">Strategy &amp; Planning</h3>
 <p class="text-body-sm font-body-sm text-on-surface-variant">Developing a customized action plan.</p>
 </div>
 <!-- Step 4 -->
-<div class="flex flex-col items-center text-center">
+<div class="process-step flex flex-col items-center text-center">
 <div class="w-16 h-16 rounded-full bg-primary-fixed text-on-primary-fixed flex items-center justify-center text-headline-md font-bold mb-4 shadow-md ring-4 ring-surface-container-lowest">4</div>
 <div class="mb-3 text-tertiary-container"><span class="material-symbols-outlined text-3xl">task_alt</span></div>
 <h3 class="text-body-lg font-headline-md text-on-surface font-semibold mb-2">Execution &amp; Filing</h3>
 <p class="text-body-sm font-body-sm text-on-surface-variant">Accurate preparation and timely submission.</p>
 </div>
 <!-- Step 5 -->
-<div class="flex flex-col items-center text-center">
+<div class="process-step flex flex-col items-center text-center">
 <div class="w-16 h-16 rounded-full bg-tertiary-fixed text-on-tertiary-fixed flex items-center justify-center text-headline-md font-bold mb-4 shadow-md ring-4 ring-surface-container-lowest">5</div>
 <div class="mb-3 text-primary-container"><span class="material-symbols-outlined text-3xl">autorenew</span></div>
 <h3 class="text-body-lg font-headline-md text-on-surface font-semibold mb-2">Ongoing Support</h3>
@@ -506,25 +530,27 @@
 </div>
 </div>
 </section>
+
 <!-- CTA Section -->
-<section class="py-20 px-margin-mobile md:px-margin-desktop bg-gradient-to-r from-primary-container to-primary relative overflow-hidden">
+<section class="py-16 sm:py-20 px-margin-mobile md:px-margin-desktop bg-gradient-to-r from-primary-container to-primary relative overflow-hidden">
 <div class="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-tertiary-container via-transparent to-transparent"></div>
-<div class="max-w-[1280px] mx-auto text-center relative z-10 reveal">
-<h2 class="text-display-lg font-display-lg text-on-primary mb-6">Ready to Simplify Your Finances?</h2>
-<p class="text-body-lg font-body-lg text-primary-fixed-dim mb-10 max-w-2xl mx-auto">Let's discuss how my expertise can help you achieve compliance, reduce tax liability, and drive financial growth.</p>
-<a class="inline-flex items-center justify-center bg-tertiary-container text-on-tertiary-container px-10 py-5 rounded-full font-label-md text-label-md text-lg hover:bg-tertiary hover:text-on-tertiary transition-colors shadow-lg hover:shadow-xl transform hover:-translate-y-1" href="#contact">
+<div class="max-w-[1280px] mx-auto text-center relative z-10">
+<h2 class="text-2xl sm:text-4xl md:text-display-lg font-display-lg text-on-primary mb-6">Ready to Simplify Your Finances?</h2>
+<p class="text-body-md sm:text-body-lg font-body-lg text-primary-fixed-dim mb-8 sm:mb-10 max-w-2xl mx-auto">Let's discuss how my expertise can help you achieve compliance, reduce tax liability, and drive financial growth.</p>
+<a class="inline-flex items-center justify-center bg-tertiary-container text-on-tertiary-container px-8 sm:px-10 py-4 sm:py-5 rounded-full font-label-md text-label-md text-base sm:text-lg hover:bg-tertiary hover:text-on-tertiary transition-all transform hover:scale-105 active:scale-95 shadow-lg hover:shadow-xl" href="#contact">
             Schedule a Consultation
         </a>
 </div>
 </section>
+
 <!-- Contact Section -->
-<section class="py-xl bg-surface px-margin-mobile md:px-margin-desktop" id="contact">
-<div class="max-w-[1280px] mx-auto reveal">
-<div class="grid grid-cols-1 lg:grid-cols-2 gap-xl">
+<section class="py-12 sm:py-xl bg-surface px-margin-mobile md:px-margin-desktop" id="contact">
+<div class="max-w-[1280px] mx-auto">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-xl">
 <!-- Contact Details -->
 <div>
-<h2 class="text-headline-lg font-headline-lg text-on-surface mb-4">Get in Touch</h2>
-<p class="text-body-lg font-body-lg text-on-surface-variant mb-8">Have a question or need assistance? Reach out today to schedule your consultation.</p>
+<h2 class="text-2xl sm:text-headline-lg font-headline-lg text-on-surface mb-4">Get in Touch</h2>
+<p class="text-body-md sm:text-body-lg font-body-lg text-on-surface-variant mb-8">Have a question or need assistance? Reach out today to schedule your consultation.</p>
 <div class="space-y-6 mb-8">
 <div class="flex items-start gap-4">
 <div class="w-12 h-12 rounded-full bg-primary-fixed flex items-center justify-center flex-shrink-0">
@@ -555,19 +581,20 @@
 </div>
 </div>
 <!-- Map Placeholder -->
-<div class="w-full h-64 bg-surface-container-high rounded-xl overflow-hidden flex items-center justify-center border border-outline-variant">
-<span class="material-symbols-outlined text-4xl text-outline mb-2 block text-center w-full">map</span>
+<div class="w-full h-56 sm:h-64 bg-surface-container-high rounded-xl overflow-hidden flex flex-col items-center justify-center border border-outline-variant p-4 text-center">
+<span class="material-symbols-outlined text-4xl text-outline mb-2">map</span>
+<span class="text-body-sm text-on-surface-variant font-medium">Financial District Office Location</span>
 </div>
 </div>
 <!-- Contact Form -->
-<div class="bg-surface-container-lowest p-8 rounded-2xl shadow-[0px_12px_32px_rgba(10,25,47,0.08)] border border-surface-container-high">
-<h3 class="text-headline-md font-headline-md text-on-surface mb-6">Send an Inquiry</h3>
-<form class="space-y-4">
+<div class="bg-surface-container-lowest p-6 sm:p-8 rounded-2xl shadow-[0px_12px_32px_rgba(10,25,47,0.08)] border border-surface-container-high">
+<h3 class="text-xl sm:text-headline-md font-headline-md text-on-surface mb-6">Send an Inquiry</h3>
+<form class="space-y-4" onsubmit="event.preventDefault();">
 <div>
 <label class="block text-label-md font-label-md text-on-surface mb-2" for="name">Full Name</label>
 <input class="w-full rounded-lg border-outline-variant bg-surface px-4 py-3 text-body-md focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors" id="name" placeholder="John Doe" type="text"/>
 </div>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
 <div>
 <label class="block text-label-md font-label-md text-on-surface mb-2" for="phone">Phone Number</label>
 <input class="w-full rounded-lg border-outline-variant bg-surface px-4 py-3 text-body-md focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors" id="phone" placeholder="+91 98765 43210" type="tel"/>
@@ -591,7 +618,7 @@
 <label class="block text-label-md font-label-md text-on-surface mb-2" for="message">Your Message</label>
 <textarea class="w-full rounded-lg border-outline-variant bg-surface px-4 py-3 text-body-md focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors" id="message" placeholder="Briefly describe your requirements..." rows="4"></textarea>
 </div>
-<button class="w-full flex items-center justify-center gap-2 bg-primary text-on-primary px-8 py-4 rounded-xl font-label-md text-label-md hover:bg-primary-container transition-colors shadow-sm mt-4" type="button">
+<button class="w-full flex items-center justify-center gap-2 bg-primary text-on-primary px-8 py-4 rounded-xl font-label-md text-label-md hover:bg-primary-container transition-all transform hover:scale-[1.02] active:scale-95 shadow-sm mt-4" type="submit">
 <span class="material-symbols-outlined text-xl">chat</span>
                         Send Inquiry via WhatsApp
                     </button>
@@ -601,12 +628,13 @@
 </div>
 </section>
 </main>
+
 <!-- Footer -->
 <footer class="bg-surface-container-highest dark:bg-inverse-surface full-width border-t border-outline-variant dark:border-outline">
-<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-desktop py-xl max-w-[1280px] mx-auto text-on-surface dark:text-inverse-on-surface font-body-sm text-body-sm px-margin-mobile">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-gutter px-margin-desktop py-12 sm:py-xl max-w-[1280px] mx-auto text-on-surface dark:text-inverse-on-surface font-body-sm text-body-sm px-margin-mobile">
 <div class="md:col-span-1">
-<span class="font-headline-md text-headline-md text-primary dark:text-inverse-primary mb-4 block">CA Portfolio</span>
-<p class="text-on-surface-variant dark:text-secondary-fixed-dim mt-4">Precision in every digit.</p>
+<span class="font-headline-md text-xl sm:text-headline-md text-primary dark:text-inverse-primary mb-4 block font-bold">CA Portfolio</span>
+<p class="text-on-surface-variant dark:text-secondary-fixed-dim mt-2 sm:mt-4">Precision in every digit.</p>
 </div>
 <div class="md:col-span-2 grid grid-cols-2 gap-6">
 <div>
@@ -626,34 +654,224 @@
 </div>
 </div>
 <div class="md:col-span-1">
-<p class="text-on-surface-variant dark:text-secondary-fixed-dim mt-8 md:mt-0">© 2024 Chartered Accountant. All rights reserved.</p>
+<p class="text-on-surface-variant dark:text-secondary-fixed-dim mt-4 md:mt-0">© 2024 Chartered Accountant. All rights reserved.</p>
 </div>
 </div>
 </footer>
+
 <script>
-        // Simple Scroll Reveal Logic
         document.addEventListener('DOMContentLoaded', () => {
-            const reveals = document.querySelectorAll('.reveal');
-            
-            const revealOnScroll = () => {
-                const windowHeight = window.innerHeight;
-                const elementVisible = 100;
-                
-                reveals.forEach(reveal => {
-                    const elementTop = reveal.getBoundingClientRect().top;
-                    if (elementTop < windowHeight - elementVisible) {
-                        reveal.classList.add('active');
-                    }
-                });
+            // Register GSAP plugins
+            gsap.registerPlugin(ScrollTrigger);
+
+            // Mobile Menu Toggle logic & GSAP timeline
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const menuIcon = document.getElementById('menu-icon');
+            const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+            let isMenuOpen = false;
+
+            const toggleMobileMenu = () => {
+                isMenuOpen = !isMenuOpen;
+                if (isMenuOpen) {
+                    mobileMenu.classList.remove('hidden');
+                    mobileMenu.classList.add('flex');
+                    menuIcon.textContent = 'close';
+                    gsap.fromTo(mobileMenu, 
+                        { opacity: 0, y: -20 },
+                        { opacity: 1, y: 0, duration: 0.3, ease: 'power2.out' }
+                    );
+                    gsap.fromTo(mobileLinks, 
+                        { opacity: 0, y: 15 },
+                        { opacity: 1, y: 0, duration: 0.35, stagger: 0.04, ease: 'power2.out', delay: 0.05 }
+                    );
+                } else {
+                    menuIcon.textContent = 'menu';
+                    gsap.to(mobileMenu, {
+                        opacity: 0,
+                        y: -15,
+                        duration: 0.25,
+                        ease: 'power2.in',
+                        onComplete: () => {
+                            mobileMenu.classList.add('hidden');
+                            mobileMenu.classList.remove('flex');
+                        }
+                    });
+                }
             };
-            
-            window.addEventListener('scroll', revealOnScroll);
-            revealOnScroll(); // Trigger on load
-            
-            // Sticky Nav styling
+
+            if (mobileMenuBtn) {
+                mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+            }
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (isMenuOpen) toggleMobileMenu();
+                });
+            });
+
+            // Header Entrance
+            gsap.from('#main-nav', {
+                y: -80,
+                opacity: 0,
+                duration: 0.9,
+                ease: 'power3.out'
+            });
+
+            // Hero Section Entrance Timeline
+            const heroTl = gsap.timeline({ defaults: { ease: 'power3.out', duration: 0.8 } });
+            heroTl.from('.hero-text-content h1', { y: 40, opacity: 0, delay: 0.2 })
+                  .from('.hero-text-content p', { y: 30, opacity: 0 }, '-=0.5')
+                  .from('.hero-text-content a', { y: 20, opacity: 0, stagger: 0.15 }, '-=0.4')
+                  .from('.hero-text-content .flex-wrap', { opacity: 0, y: 15 }, '-=0.3')
+                  .from('.hero-image-wrap', { scale: 0.92, opacity: 0, duration: 1, ease: 'power2.out' }, '-=0.8');
+
+            // Hero Image Scroll Parallax
+            gsap.to('.hero-image-wrap img', {
+                yPercent: 10,
+                ease: 'none',
+                scrollTrigger: {
+                    trigger: '#home',
+                    start: 'top top',
+                    end: 'bottom top',
+                    scrub: true
+                }
+            });
+
+            // Stat Counters Animation in About section
+            const stat1 = document.getElementById('stat-exp');
+            const stat2 = document.getElementById('stat-audit');
+
+            if (stat1 && stat2) {
+                ScrollTrigger.create({
+                    trigger: '#about',
+                    start: 'top 75%',
+                    onEnter: () => {
+                        let obj1 = { val: 0 };
+                        gsap.to(obj1, {
+                            val: 12,
+                            duration: 1.8,
+                            ease: 'power2.out',
+                            onUpdate: () => { stat1.textContent = Math.floor(obj1.val) + '+'; }
+                        });
+                        let obj2 = { val: 0 };
+                        gsap.to(obj2, {
+                            val: 99,
+                            duration: 2,
+                            ease: 'power2.out',
+                            onUpdate: () => { stat2.textContent = Math.floor(obj2.val) + '%'; }
+                        });
+                    },
+                    once: true
+                });
+            }
+
+            // Section Titles & Subtitles Scroll Trigger
+            const sections = ['#about', '#services', '#whyme', '#testimonials', '#process', '#contact'];
+            sections.forEach(secId => {
+                const sec = document.querySelector(secId);
+                if (!sec) return;
+
+                const title = sec.querySelector('h2');
+                const desc = sec.querySelector('h2 + p');
+                
+                if (title) {
+                    gsap.from(title, {
+                        y: 35,
+                        opacity: 0,
+                        duration: 0.8,
+                        ease: 'power3.out',
+                        scrollTrigger: {
+                            trigger: sec,
+                            start: 'top 82%',
+                        }
+                    });
+                }
+
+                if (desc) {
+                    gsap.from(desc, {
+                        y: 25,
+                        opacity: 0,
+                        duration: 0.7,
+                        delay: 0.1,
+                        ease: 'power3.out',
+                        scrollTrigger: {
+                            trigger: sec,
+                            start: 'top 82%',
+                        }
+                    });
+                }
+            });
+
+            // Services Cards Stagger Reveal
+            gsap.from('#services .grid > div', {
+                y: 45,
+                opacity: 0,
+                duration: 0.8,
+                stagger: 0.15,
+                ease: 'power2.out',
+                scrollTrigger: {
+                    trigger: '#services .grid',
+                    start: 'top 82%'
+                }
+            });
+
+            // Why Choose Me Feature Items Stagger
+            gsap.from('#whyme .grid > div', {
+                y: 30,
+                opacity: 0,
+                duration: 0.7,
+                stagger: 0.1,
+                ease: 'power2.out',
+                scrollTrigger: {
+                    trigger: '#whyme .grid',
+                    start: 'top 82%'
+                }
+            });
+
+            // Testimonials Cards Stagger Reveal
+            gsap.from('#testimonials .grid > div', {
+                y: 40,
+                opacity: 0,
+                duration: 0.8,
+                stagger: 0.15,
+                ease: 'power2.out',
+                scrollTrigger: {
+                    trigger: '#testimonials .grid',
+                    start: 'top 82%'
+                }
+            });
+
+            // Process Steps Sequential Animation
+            gsap.from('.process-step', {
+                scale: 0.85,
+                y: 30,
+                opacity: 0,
+                duration: 0.7,
+                stagger: 0.18,
+                ease: 'back.out(1.4)',
+                scrollTrigger: {
+                    trigger: '#process .grid',
+                    start: 'top 82%'
+                }
+            });
+
+            // Contact Columns Reveal
+            gsap.from('#contact .grid > div', {
+                y: 40,
+                opacity: 0,
+                duration: 0.8,
+                stagger: 0.2,
+                ease: 'power2.out',
+                scrollTrigger: {
+                    trigger: '#contact',
+                    start: 'top 82%'
+                }
+            });
+
+            // Navbar Shadow Transition on Scroll
             const nav = document.getElementById('main-nav');
             window.addEventListener('scroll', () => {
-                if (window.scrollY > 50) {
+                if (window.scrollY > 40) {
                     nav.classList.add('shadow-md');
                     nav.classList.remove('shadow-sm');
                 } else {

@@ -1,0 +1,302 @@
+import {
+  ShieldCheck,
+  Users,
+  Calendar,
+  MessageCircle,
+  Landmark,
+  Receipt,
+  ClipboardCheck,
+  UserCheck,
+  Clock,
+  Eye,
+  Headphones,
+  Lock,
+  MessageSquare,
+  FolderOpen,
+  Lightbulb,
+  FileCheck,
+  RefreshCw,
+  Phone,
+  Mail,
+  MapPin,
+} from "lucide-react";
+
+export const siteConfig = {
+  name: "HG fin consultancy",
+  tagline: "Precision in every digit.",
+  phone: "+91 7073507978",
+  whatsappPhone: "7073507978",
+  email: "contact@caportfolio.com",
+  address: "123 Financial District, Business Park, Mumbai, MH 400001",
+  mapEmbedUrl:
+    "https://maps.google.com/maps?q=Financial%20District%20Mumbai&t=&z=14&ie=UTF8&iwloc=&output=embed",
+};
+
+export const navItems = [
+  { id: "home", label: "Home", href: "/#home" },
+  { id: "about", label: "About", href: "/#about" },
+  { id: "services", label: "Services", href: "/#services" },
+  { id: "whyme", label: "Why Me", href: "/#whyme" },
+  { id: "testimonials", label: "Testimonials", href: "/#testimonials" },
+  { id: "process", label: "Process", href: "/#process" },
+  { id: "contact", label: "Contact", href: "/#contact" },
+];
+
+export const heroData = {
+  title: "Trusted Financial Guidance for Individuals & Businesses",
+  subtitle:
+    "Precision in every digit. Strategic insights tailored to secure your financial future and optimize growth.",
+  primaryCta: {
+    label: "Book a Consultation",
+    href: "#contact",
+  },
+  secondaryCta: {
+    label: "Contact on WhatsApp",
+    href: "#contact",
+  },
+  badges: [
+    { label: "ICAI Certified", icon: ShieldCheck },
+    { label: "500+ Clients", icon: Users },
+  ],
+  image: {
+    src: "https://lh3.googleusercontent.com/aida-public/AB6AXuC_NuUvNzK6j38L1NuDL7Ira50KTyfrAcGPbhupwbABslK4oPYQ8eUJIKsdf8rSiFsvYYMNBnE2oG1Wo4dIXD7VZrdk6ZlJ9UziIDEbaQ4Y1SHZXwisYHPtp_ef6iu7gY-HEOtN7I5d-rp2JHDaSUV2orjsEMrjRq4Goz3q5IEg8owHz-SN9lOC12KQQG2k04nqD5EZAp8GHtrv4PPlGGORO3i8hZ-BevbFbCkXGE77wVyHhlCJsIPF9A",
+    alt: "Chartered Accountant Professional Portrait",
+  },
+};
+
+export const aboutData = {
+  title: "Expertise Built on Trust & Precision",
+  paragraphs: [
+    "With over a decade of experience navigating complex financial landscapes, I specialize in transforming raw data into actionable strategies. My approach marries rigorous analytical precision with a deep understanding of each client's unique goals.",
+    "Whether you are an individual seeking tax optimization or a corporation requiring comprehensive audit services, my commitment remains the same: delivering clarity, compliance, and growth.",
+  ],
+  stats: [
+    { value: 12, suffix: "+", label: "Years Exp." },
+    { value: 99, suffix: "%", label: "Audit Success" },
+  ],
+  image: {
+    src: "https://lh3.googleusercontent.com/aida-public/AB6AXuD-iEt6awvR_VebZ7Ji4967fcaxcqQtw-sv3V2PEDXBGFZMQSWE_TeZK4Inoa_5eNZYCPx8H1T4s4N9fitxyUxa4joNGuPUYW_gQOYOo6xHLmLZZhSCYrD3vS9jRK49SjXseF0QcwkimDN3QdKWe_xvKJEPOb6JqYFKsiyRzpVOC8MH8CFaoiTQ_5yo66rBNGkA2ju89lT_7Xpvr8i6b7kqj2tjr4XmyjkHUWXO4nCOGFPiHFYmz5rDNA",
+    alt: "Chartered Accountant reviewing financial documents",
+  },
+};
+
+export const servicesData = {
+  title: "Comprehensive Financial Solutions",
+  subtitle:
+    "Tailored services designed to streamline your operations and secure your financial foundation.",
+  items: [
+    {
+      id: "tax",
+      title: "Income Tax",
+      description:
+        "Strategic tax planning and meticulous filing for individuals and corporate entities to maximize returns.",
+      icon: Landmark,
+      iconBg: "bg-[#d6e3ff]",
+      iconColor: "text-[#0d1c32]",
+      highlight: false,
+    },
+    {
+      id: "gst",
+      title: "GST Compliance",
+      description:
+        "End-to-end GST registration, regular filing, and advisory to ensure seamless regulatory adherence.",
+      icon: Receipt,
+      iconBg: "bg-[#d6e3ff]",
+      iconColor: "text-[#0d1c32]",
+      highlight: false,
+    },
+    {
+      id: "audit",
+      title: "Statutory Auditing",
+      description:
+        "Rigorous internal and statutory audits providing transparent insights into your financial health.",
+      icon: ClipboardCheck,
+      iconBg: "bg-[#ffe088]",
+      iconColor: "text-[#241a00]",
+      highlight: true,
+    },
+  ],
+};
+
+export const whyChooseMeData = {
+  title: "Why Choose Me",
+  subtitle:
+    "A commitment to excellence, integrity, and your financial success.",
+  features: [
+    {
+      title: "Verified Credibility",
+      description:
+        "ICAI certified professional with a proven track record of accurate and compliant financial reporting.",
+      icon: ShieldCheck,
+      iconBg: "bg-[#d6e3ff]",
+      iconColor: "text-[#0d1c32]",
+    },
+    {
+      title: "Personalized Guidance",
+      description:
+        "Tailored financial strategies designed specifically for your unique business or individual needs.",
+      icon: UserCheck,
+      iconBg: "bg-[#ffe088]",
+      iconColor: "text-[#241a00]",
+    },
+    {
+      title: "Timely Compliance",
+      description:
+        "Never miss a deadline. Proactive management of all your filing and regulatory requirements.",
+      icon: Clock,
+      iconBg: "bg-[#d6e3ff]",
+      iconColor: "text-[#0d1c32]",
+    },
+    {
+      title: "100% Transparency",
+      description:
+        "Clear, understandable communication about your financial status and no hidden fees.",
+      icon: Eye,
+      iconBg: "bg-[#ffe088]",
+      iconColor: "text-[#241a00]",
+    },
+    {
+      title: "Client-Focused Support",
+      description:
+        "Dedicated assistance whenever you need it, ensuring your questions are always answered.",
+      icon: Headphones,
+      iconBg: "bg-[#d6e3ff]",
+      iconColor: "text-[#0d1c32]",
+    },
+    {
+      title: "Confidentiality",
+      description:
+        "Strict adherence to data privacy and professional secrecy to protect your sensitive information.",
+      icon: Lock,
+      iconBg: "bg-[#ffe088]",
+      iconColor: "text-[#241a00]",
+    },
+  ],
+};
+
+export const testimonialsData = {
+  title: "What My Clients Say",
+  subtitle:
+    "Hear from businesses and individuals who have trusted me with their finances.",
+  reviews: [
+    {
+      quote:
+        '"Their strategic tax planning saved our company thousands this fiscal year. Highly professional and always available to answer our queries."',
+      name: "Sarah Jenkins",
+      role: "CEO, TechStart Inc.",
+      rating: 5,
+      avatar:
+        "https://lh3.googleusercontent.com/aida-public/AB6AXuBsUEzbmNjU6NIwMv_RBxHCUk_ih5JpBICKkhy_Rj4GP_DUkiR-Q5d3Cn0AX1Z1ieWQvpaaOrbdVkqMgN67swCrCdSTOhAt8uYRov_dPWHRthK0UGV78P-KSvpXhrOSBTToC5VHPukhxRSFbHp-T3JE0hl9L94waORaLjsznM7Hzhr4Dp9lQUUKSAi2TtlQNaFJabee4lhlGxaaxScGEye9aZVjpQ0eB2oU3v2k1xVpEhxvK86-IVmXZg",
+    },
+    {
+      quote:
+        '"Navigating GST compliance used to be a nightmare for my retail business until I started working with them. Seamless, timely, and error-free."',
+      name: "Rajesh Kumar",
+      role: "Owner, RK Retailors",
+      rating: 5,
+      avatar:
+        "https://lh3.googleusercontent.com/aida-public/AB6AXuBltJIqjau2I5cDeUFlRnCvmo21GgvL6XTG7dfPwNwUxS_yVnQYccNZHbp7q5QGNd5jQW4SRMY7Mk-h5FoY2sWO0B0BPyO9UMuy-gjed2412DqBoZkzpUCBfDTjKw93Rs3UgiJ6pnpyw8yIwRM9_nGqDJXVlqZ5FpMG9j6Yqh0y3mgAwK0qGCrCQMcIeWz1nRWiDtAvhkhcpm8mSnidKCqcV06p246oaW31viug5qNel84ZQr_rq-Qq2A",
+    },
+    {
+      quote:
+        '"Thorough and insightful statutory audits. They don\'t just check boxes; they provide real value and insights into our financial health."',
+      name: "Anita Patel",
+      role: "Director, Apex Solutions",
+      rating: 5,
+      avatar:
+        "https://lh3.googleusercontent.com/aida-public/AB6AXuCtVX1fj4mFtuSvHgm5wmJcYTKlBRj0D4cIArc-bgsse39tJmUv-89sadBbd6JaOoGduqfvtZWZMpGRPr3SJgLkySP5YNMOqVYutWlshqtCmXD4mjOniGDJP-KGrEumQk9uzcVUXPFuiNLnmgFm7laQhje86i4kohdhTmWGjlor521drQPcq8R24FYp-2yLzvFPHstlhQk78G7JL166CoKKlib_i_NFK_qXp9orC7utkU95daSVNSgPng",
+    },
+  ],
+};
+
+export const processData = {
+  title: "How It Works",
+  subtitle:
+    "A streamlined, transparent process to handle your financial needs efficiently.",
+  steps: [
+    {
+      num: 1,
+      numBg: "bg-[#000000] text-[#ffffff]",
+      icon: MessageSquare,
+      iconColor: "text-[#cba72f]",
+      title: "Initial Consultation",
+      desc: "Understanding your specific needs and goals.",
+    },
+    {
+      num: 2,
+      numBg: "bg-[#0d1c32] text-[#76849f]",
+      icon: FolderOpen,
+      iconColor: "text-[#cba72f]",
+      title: "Document Collection",
+      desc: "Securely gathering necessary financial records.",
+    },
+    {
+      num: 3,
+      numBg: "bg-[#cba72f] text-[#4e3d00]",
+      icon: Lightbulb,
+      iconColor: "text-[#0d1c32]",
+      title: "Strategy & Planning",
+      desc: "Developing a customized action plan.",
+    },
+    {
+      num: 4,
+      numBg: "bg-[#d6e3ff] text-[#0d1c32]",
+      icon: FileCheck,
+      iconColor: "text-[#cba72f]",
+      title: "Execution & Filing",
+      desc: "Accurate preparation and timely submission.",
+    },
+    {
+      num: 5,
+      numBg: "bg-[#ffe088] text-[#241a00]",
+      icon: RefreshCw,
+      iconColor: "text-[#0d1c32]",
+      title: "Ongoing Support",
+      desc: "Continuous monitoring and advisory services.",
+    },
+  ],
+};
+
+export const ctaData = {
+  title: "Ready to Simplify Your Finances?",
+  subtitle:
+    "Let's discuss how my expertise can help you achieve compliance, reduce tax liability, and drive financial growth.",
+  buttonLabel: "Schedule a Consultation",
+  buttonHref: "#contact",
+};
+
+export const contactData = {
+  title: "Get in Touch",
+  subtitle:
+    "Have a question or need assistance? Reach out today to schedule your consultation.",
+  infoItems: [
+    { title: "Phone", value: siteConfig.phone, icon: Phone },
+    { title: "Email", value: siteConfig.email, icon: Mail },
+    { title: "Office Address", value: siteConfig.address, icon: MapPin },
+  ],
+  formTitle: "Send an Inquiry",
+  servicesOptions: [
+    "Income Tax Planning & Filing",
+    "GST Registration & Compliance",
+    "Statutory Auditing",
+    "Other Consulting Services",
+  ],
+  submitButtonText: "Send Inquiry via WhatsApp",
+};
+
+export const footerData = {
+  tagline: "Precision in every digit. Professional Chartered Accountant services.",
+  certificationBadge: "ICAI Certified Professional",
+  coreSolutions: [
+    "Income Tax Planning & Filing",
+    "GST Compliance & Advisory",
+    "Statutory & Internal Auditing",
+    "Corporate Financial Advisory",
+    "Bookkeeping & Accounting",
+  ],
+  legalLinks: [
+    { label: "Privacy Policy", href: "/privacy-policy" },
+    { label: "Terms of Service", href: "/terms-of-service" },
+  ],
+  copyrightText: "© 2026 HG Fin Consultancy. All rights reserved.",
+};
